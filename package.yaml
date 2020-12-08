@@ -1,0 +1,35 @@
+name:                chassis
+version:             0.0.1.0
+git:                 https://gitlab.com/homotopic-tech/chassis
+license:             BSD3
+author:              "Daniel Firth"
+maintainer:          "dan.firth@homotopic.tech"
+copyright:           "2020 Daniel Firth"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+synopsis:            Prelude with algebraic constructs and polykinds on.
+category:            Prelude
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- comonad
+- composite-base
+- containers
+- contravariant
+- distributive
+- either
+- exceptions
+- extra
+- first-class-families
+- path
+- profunctors
+- rio
+- text
+- vinyl
+
+library:
+  source-dirs: src
