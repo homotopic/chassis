@@ -49,6 +49,7 @@ module Chassis (
 , Compose(..)
 , onCompose
 , Generic
+, UTCTime
 , Path
 , Rel
 , Abs
@@ -120,3 +121,4 @@ import Path
 import Data.Profunctor
 import Data.Either
 import Composite.CoRecord
+import Data.Time (UTCTime)
