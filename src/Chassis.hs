@@ -93,6 +93,8 @@ module Chassis (
 , mkAbsFile
 , (</>)
 , RMap
+, rcast
+, (>$<)
 ) where
 
 import RIO.List (headMaybe, tailMaybe, initMaybe)

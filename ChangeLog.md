@@ -1,8 +1,12 @@
 # Changelog for chassis
 
+## v0.0.3.0
+
+* Add `rcast` and `(>$<)`.
+
 ## v0.0.2.0
 
-* Export UTCTime.
+* Export `UTCTime`.
 
 ## v0.0.1.0
 
