@@ -83,7 +83,8 @@ module Chassis (
 , join
 , (=<<)
 , CoRec(..)
-, Env
+, Env(..)
+, EnvT(..)
 , env
 , runEnv
 , runEnvT

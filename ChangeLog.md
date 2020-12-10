@@ -1,5 +1,9 @@
 # Changelog for chassis
 
+## v0.0.4.0
+
+* Export Env and EnvT constructors.
+
 ## v0.0.3.0
 
 * Add `rcast` and `(>$<)`.
