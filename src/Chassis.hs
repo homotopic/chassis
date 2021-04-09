@@ -1,127 +1,201 @@
 {-# LANGUAGE ExplicitNamespaces #-}
 {-# LANGUAGE PolyKinds          #-}
 module Chassis (
-  Bool(..)
+-- * Void
+  Void
+, absurd
+
+-- * Bool
+, Bool(..)
+, not
+
+-- * Numbers
 , Int
+, Num(..)
+
+-- * String/Text/ByteString
 , String
-, Void
 , ByteString
 , Text
-, Maybe(..)
-, Either(..)
-, IO
-, Eq(..)
-, Ord(..)
 , Show(..)
+
+-- * Classic Algebra
 , Semigroup(..)
 , Monoid(..)
+, Eq(..)
+, Ord(..)
+
+-- * Function Composition
 , (.)
 , ($)
-, not
-, whenM
+
+-- * IO
+, IO
+
+-- * Maybe
+, Maybe(..)
+, maybe
+
+-- * Either
+, Either(..)
+, either
+
+-- * NonEmpty
+, NonEmpty(..)
+
+-- * Map
+, Map(..)
+
+-- * Tuples & Currying
 , fst
 , snd
-, (>>>)
-, (>=>)
-, (=>=)
 , const
 , curry
 , uncurry
-, Functor(..)
-, Applicative(..)
-, Monad(..)
+
+-- * Foldable
 , Foldable(..)
-, Traversable(..)
-, Contravariant(..)
-, ComonadApply(..)
-, Comonad(..)
-, Profunctor(..)
-, Strong(..)
-, Choice(..)
-, Category(..)
-, Arrow(..)
-, ArrowChoice(..)
-, ArrowLoop(..)
-, Distributive(..)
-, Rec(..)
-, rtraverse
-, (:.)
-, Compose(..)
-, onCompose
-, Generic
-, UTCTime
-, Path
-, Rel
-, Abs
-, File
-, Dir
-, Num(..)
+
+-- * Functor
+, Functor(..)
 , (<$>)
-, flip
-, rights
-, Type
-, Exp
-, Eval
-, Exception(..)
-, SomeException(..)
-, undefined
-, fail
-, either
-, fromMaybe
-, Map
-, headMaybe
-, tailMaybe
-, initMaybe
-, FMap
-, type (∈)
-, filterM
+, void
+
+-- * Applicative
+, Applicative(..)
+, when
 , unless
+, whenM
+, whenJust
+
+-- * Traversable
+, Traversable(..)
+, traverse_
+, for_
+, filterM
+
+-- * Monad
+, Monad(..)
+, join
 , forM_
 , forM
 , mapM_
-, whenJust
-, join
+, sequence_
 , (=<<)
-, CoRec(..)
+, (>=>)
+
+-- * Contravariant
+, Contravariant(..)
+, (>$<)
+
+-- * Distributive
+, Distributive(..)
+
+-- * Comonad
+, ComonadApply(..)
+, Comonad(..)
+, (=>=)
+, (<<=)
+
+-- * Profunctor
+, Profunctor(..)
+, Strong(..)
+, Choice(..)
+
+-- * Category
+, Category(..)
+, Arrow(..)
+, (>>>)
+, ArrowChoice(..)
+, ArrowLoop(..)
+
+-- * EnvT
 , Env(..)
 , EnvT(..)
 , env
 , runEnv
 , runEnvT
+
+-- * Extensible Records
+, Rec(..)
+, RMap
+, rtraverse
+, rcast
+, CoRec(..)
+, type (∈)
+
+-- * Compose
+, (:.)
+, Compose(..)
+, onCompose
+
+-- * Generic
+, Generic
+
+-- * Time
+, UTCTime
+
+-- * Path
+, Path
+, Rel
+, Abs
+, File
+, Dir
 , mkRelDir
 , mkRelFile
 , mkAbsDir
 , mkAbsFile
 , (</>)
-, RMap
-, rcast
-, (>$<)
+
+, flip
+, rights
+, Type
+
+-- * First Class Families
+, Exp
+, Eval
+, FMap
+
+-- * Exceptions
+, Exception(..)
+, SomeException(..)
+
+-- * Undefined
+, undefined
+
+-- * Lists
+, fromMaybe
+, headMaybe
+, tailMaybe
+, initMaybe
 ) where
 
-import RIO.List (headMaybe, tailMaybe, initMaybe)
-import Control.Exception
-import Data.Maybe
-import Data.Map (Map)
-import Fcf (Eval, Exp)
-import Fcf.Class.Functor (FMap)
-import Data.Kind
-import Control.Category hiding ((.))
-import Data.Functor.Contravariant
-import Data.Void
-import Data.Distributive
-import Control.Arrow
-import Prelude
+import Composite.CoRecord
 import Control.Applicative
+import Control.Arrow
+import Control.Category hiding ((.))
+import Control.Comonad.Env
+import Control.Exception
 import Control.Monad
 import Control.Monad.Extra
+import Data.ByteString
+import Data.Distributive
+import Data.Either
+import Data.Foldable
+import Data.Functor.Contravariant
+import Data.Kind
+import Data.List.NonEmpty
+import Data.Map (Map)
+import Data.Maybe
+import Data.Profunctor
+import Data.Text
+import Data.Time (UTCTime)
 import Data.Vinyl
 import Data.Vinyl.Functor
+import Data.Void
+import Fcf (Eval, Exp)
+import Fcf.Class.Functor (FMap)
 import GHC.Generics
-import Data.ByteString
-import Data.Text
-import Control.Comonad.Env
+import RIO.List (headMaybe, tailMaybe, initMaybe)
 import Path
-import Data.Profunctor
-import Data.Either
-import Composite.CoRecord
-import Data.Time (UTCTime)
+import Prelude
