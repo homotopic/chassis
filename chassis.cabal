@@ -33,7 +33,7 @@ library
       base >=4.7 && <5
     , bytestring
     , comonad
-    , composite-base
+    , composite-base >= 0.7.4.0
     , containers
     , contravariant
     , distributive
